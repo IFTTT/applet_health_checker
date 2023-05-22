@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: IFTTT Applet Health Checker API
+  version: 1.0.0
+paths:
+  /check_health:
+    get:
+      summary: Check Applet Health
+      description: Checks the health status of IFTTT applets installed by a user.
+      operationId: checkHealth
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    slug:
+                      type: string
+                      description: The slug of the applet.
+                    name:
+                      type: string
+                      description: The name of the applet.
+                    status:
+                      type: string
+                      enum: [OK, Failing]
+components: {}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "IFTTT Applet Health Checker",
+  "name_for_model": "ifttt_applet_health_checker",
+  "description_for_human": "Plugin for checking the health status of IFTTT applets installed by a user.",
+  "description_for_model": "A plugin that provides an API endpoint to check the health status of IFTTT applets.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "http://localhost:3333/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "http://localhost:3333/logo.png",
+  "contact_email": "aleksandr@ifttt.com",
+  "legal_info_url": "http://ifttt.com"
+}
