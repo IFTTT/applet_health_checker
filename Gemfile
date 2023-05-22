@@ -6,6 +6,7 @@ gem "rake", "~> 13.0"
 gem "sinatra"
 gem "sinatra-contrib"
 gem "thin"
+gem "sinatra-cross_origin"
 
 group :development, :test do
   gem "m", "~> 1.5.0"

@@ -2,6 +2,7 @@ require 'pry'
 
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/cross_origin'
 require 'json'
 
 class App < Sinatra::Base
@@ -9,13 +10,22 @@ class App < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  configure do
+    enable :cross_origin
+  end
+
   before do
-    # Enable CORS
     response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Methods'] = 'GET'
     # Log the request details
     request_logger = Logger.new(STDOUT)
     request_logger.info("Request: #{request.request_method} #{request.url}")
+  end
+
+  options "*" do
+    response.headers["Allow"] = "GET, PUT, POST, DELETE, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "*"
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    200
   end
 
   get '/check_health' do
@@ -25,8 +35,8 @@ class App < Sinatra::Base
 
     # Dummy response for demonstration purposes
     [
-      { "slug": "applet1", "name": "Applet 1", "status": "OK" },
-      { "slug": "applet2", "name": "Applet 2", "status": "Failing" }
+      { "slug": "applet1", "name": "Applet 1", "status": "Healthy" },
+      { "slug": "applet2", "name": "Applet 2", "status": "NotHealthy" }
     ].to_json
   end
 

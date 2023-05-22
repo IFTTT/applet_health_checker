@@ -2,8 +2,8 @@
   "schema_version": "v1",
   "name_for_human": "IFTTT Applet Health Checker",
   "name_for_model": "ifttt_applet_health_checker",
-  "description_for_human": "Plugin for checking the health status of IFTTT applets installed by a user.",
-  "description_for_model": "A plugin that provides an API endpoint to check the health status of IFTTT applets.",
+  "description_for_human": "Plugin for checking the health status of IFTTT applets.",
+  "description_for_model": "List IFTTT applets together with their statuses.",
   "auth": {
     "type": "none"
   },

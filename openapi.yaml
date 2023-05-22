@@ -1,12 +1,12 @@
 openapi: 3.0.0
 info:
-  title: IFTTT Applet Health Checker API
+  title: IFTTT Applet Health Checker
   version: 1.0.0
 paths:
   /check_health:
     get:
-      summary: Check Applet Health
-      description: Checks the health status of IFTTT applets installed by a user.
+      summary: Check Applets Health
+      description: Checks the health status of IFTTT installed applets
       operationId: checkHealth
       responses:
         '200':
@@ -14,20 +14,23 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AppletStatus'
+                 $ref: '#/components/schemas/checkHealthResponse'
 components:
   schemas:
-    AppletStatus:
-      type: array
-      items:
-        type: object
-        properties:
-          slug:
-            type: string
-            description: The slug of the applet.
-          name:
-            type: string
-            description: The name of the applet.
-          status:
-            type: string
-            enum: [OK, Failing]
+    checkHealthResponse:
+      type: object
+      properties:
+        statuses:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: The name of the applet.
+              slug:
+                type: string
+                description: The slug of the applet.
+              status:
+                type: string
+                description: The status of the applet.
