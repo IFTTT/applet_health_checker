@@ -10,21 +10,24 @@ paths:
       operationId: checkHealth
       responses:
         '200':
-          description: Successful response
+          description: OK
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    slug:
-                      type: string
-                      description: The slug of the applet.
-                    name:
-                      type: string
-                      description: The name of the applet.
-                    status:
-                      type: string
-                      enum: [OK, Failing]
-components: {}
+                $ref: '#/components/schemas/AppletStatus'
+components:
+  schemas:
+    AppletStatus:
+      type: array
+      items:
+        type: object
+        properties:
+          slug:
+            type: string
+            description: The slug of the applet.
+          name:
+            type: string
+            description: The name of the applet.
+          status:
+            type: string
+            enum: [OK, Failing]

@@ -9,10 +9,10 @@
   },
   "api": {
     "type": "openapi",
-    "url": "http://localhost:3333/openapi.yaml",
+    "url": "http://localhost:4567/openapi.yaml",
     "is_user_authenticated": false
   },
-  "logo_url": "http://localhost:3333/logo.png",
+  "logo_url": "http://localhost:4567/logo.png",
   "contact_email": "aleksandr@ifttt.com",
   "legal_info_url": "http://ifttt.com"
 }
