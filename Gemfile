@@ -7,6 +7,8 @@ gem "sinatra"
 gem "sinatra-contrib"
 gem "thin"
 gem "sinatra-cross_origin"
+gem "activesupport"
+gem "graphql"
 
 group :development, :test do
   gem "m", "~> 1.5.0"
