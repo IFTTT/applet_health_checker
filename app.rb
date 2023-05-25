@@ -51,7 +51,7 @@ class App < Sinatra::Base
     puts "OAuth key value pairs from the ChatGPT Request: #{params}"
     url = "#{params['redirect_uri']}?code=#{OPENAI_CODE}"
     puts "URL: #{url}"
-    erb "<a href='<%=url%>'>Click to authorize</a>"
+    "<a href='#{url}'>Click to authorize</a>"
   end
 
   # Variables
