@@ -1,7 +1,9 @@
-openapi: 3.0.0
+openapi: 3.0.1
 info:
   title: IFTTT Applet Health Checker
-  version: 1.0.0
+  description: A plugin that allows the user to check her applet health statuses.
+  version: 'v1'
+  - url: <%=@plugin_host%>
 paths:
   /check_health:
     get:

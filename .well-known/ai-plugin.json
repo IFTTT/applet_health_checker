@@ -1,18 +1,25 @@
 {
   "schema_version": "v1",
-  "name_for_human": "IFTTT Applet Health Checker",
+  "name_for_human": "IFTTT Applet Health Checker (OAuth)",
   "name_for_model": "ifttt_applet_health_checker",
   "description_for_human": "Plugin for checking the health status of IFTTT applets.",
   "description_for_model": "List IFTTT applets together with their statuses.",
-  "auth": {
-    "type": "none"
-  },
+    "auth": {
+      "type": "oauth",
+      "client_url": "<%=@plugin_host%>/oauth",
+        "scope": "",
+        "authorization_url": "<%=@plugin_host%>/auth/oauth_exchange",
+        "authorization_content_type": "application/json",
+      "verification_tokens": {
+        "openai": "copy_from_Plugin_registration_UI"
+      }
+    },
   "api": {
     "type": "openapi",
-    "url": "http://localhost:4567/openapi.yaml",
+    "url": "<%=@plugin_host%>/openapi.yaml",
     "is_user_authenticated": false
   },
-  "logo_url": "http://localhost:4567/logo.png",
+  "logo_url": "<%=@plugin_host%>/logo.png",
   "contact_email": "aleksandr@ifttt.com",
   "legal_info_url": "http://ifttt.com"
 }

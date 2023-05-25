@@ -20,6 +20,7 @@ class App < Sinatra::Base
     response.headers["Access-Control-Allow-Origin"] = "*"
     request_logger = Logger.new(STDOUT)
     request_logger.info("Request: #{request.request_method} #{request.url}")
+    @plugin_host = "https://#{request.env['HTTP_HOST']}"
   end
 
   options "*" do
@@ -34,13 +35,15 @@ class App < Sinatra::Base
 
   get '/.well-known/ai-plugin.json' do
     content_type :json
-
-    # Read and serve the ai-plugin.json file
-    File.read('./.well-known/ai-plugin.json')
+    ERB.
+      new(File.read('./.well-known/ai-plugin.json')).
+      result(binding)
   end
 
   get '/openapi.yaml' do
-    File.read('./openapi.yaml')
+    ERB.
+      new(File.read('./openapi.yaml')).
+      result(binding)
   end
 
   get '/logo.png' do
